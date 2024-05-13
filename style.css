@@ -469,6 +469,16 @@ footer .container-grid {
     color: var(--laranja-gamifica);
 }
 
+.menu-fechado {
+    width: 100%;
+
+    display: none;
+}
+
+#icone-barras {
+    display: none;
+}
+
 @media screen and (max-width: 1300px) {
     header {
         position: relative;
@@ -611,11 +621,7 @@ footer .container-grid {
         font-size: 22px;
     }
 
-     nav.menu {
-        width: 100%;
 
-        display: none;
-     }
     
      #sobre {
         padding-left: 0px;
