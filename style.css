@@ -54,7 +54,7 @@ html {
 }
 
 .segundo-banner{
-    background-image: linear-gradient(90deg, rgba(24, 104, 136, 1) 0%, rgba(24, 104, 136, 0.8) 100%), url(img/bg-room.png);
+    background-image: linear-gradient(90deg, rgba(24, 104, 36, 1) 0%, rgba(24, 104, 36, 0.8) 100%), url(img/bg-room.png);
 }
 
 .terceiro-banner{
@@ -104,6 +104,10 @@ html {
     background: none;
     border: none;
     cursor: pointer;
+}
+
+.botoes svg{
+    fill: #ffffff76;
 }
 
 header {
