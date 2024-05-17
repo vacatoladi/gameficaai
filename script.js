@@ -1,3 +1,4 @@
+
 let menu = document.getElementById("menu")
 let iconex = document.getElementById("icone-x")
 let iconebarras = document.getElementById("icone-barras")
@@ -68,26 +69,7 @@ const selecionarSlide = (indiceSlide) => {
     banner.classList.add(slides[indiceSlide])
 }
 
-let listaCases = [
-
-    {
-        imagem: "https://unsplash.it/600/400?image=21",
-        descricao: "Uma Empresa de tecnologia lança um desafio de gamificação onde os funcionarios devem propor e implementar ideias inovadoras"
-    },
-    {
-        imagem: "https://unsplash.it/600/400?image=584",
-        descricao: "Uma empresa de consultorias, cria uma narrativa interativa de gameficação para seu programa de treinamento"
-    },
-    {
-        imagem: "https://unsplash.it/600/400?image=410",
-        descricao: "Uma empresa de vendas implementa uma competição de gamificada entre equipes que competem pelo topo do rank"
-    },
-    {
-        imagem: "https://unsplash.it/600/400?image=1001",
-        descricao: "Uma empresa de saúde promove o bem-estar dos funcionários através de um desafio de gamificação de condicionamento"
-    }
-
-]
+let listaCases = []
 
 const renderizarCases = () => {
     let elementoLista = document.getElementById("lista-cards")
@@ -102,4 +84,46 @@ const renderizarCases = () => {
     </div>`
 })
 elementoLista.innerHTML = template
+}
+
+const carregarCases = () => {
+    fetch("http://localhost:3000/cases")
+    .then( responsta => responsta.json ())
+    .then( (dados) => {
+        listaCases = dados 
+        renderizarCases()
+    })
+
+    .catch( erro=> console.error(error))
+}
+
+const solicitarOrcamento = (event) => {
+    let valorNome = document.getElementById("campo-nome").value
+    let valorEmail = document.getElementById("campo-email").value
+    let valorDescricao = document.getElementById("campo-descricao").value
+
+    let dadosForm = {
+        nome: valorNome,
+        email: valorEmail,
+        descricao: valorDescricao
+    }
+
+    fetch("http://localhost:3000/solicitacoes", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dadosForm)
+    })
+    .then(resposta => {
+        console.log(resposta)
+        document.querySelector("#contato form").reset()
+        alert("Solicitação cadastrada")
+    })
+    .catch(erro => {
+        console.error(erro)
+        alert("Erro na requisição")
+    })
+
+    event.preventDefault()
 }
