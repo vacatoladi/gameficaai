@@ -90,15 +90,15 @@
             <form onsubmit="solicitarOrcamento(event)">
                 <div class="campo">
                     <label for="">Qual é o seu nome?</label>
-                    <input id="campo-nome" type="text" placeholder="Digite seu nome...">
+                    <input required id="campo-nome" type="text" placeholder="Digite seu nome...">
                 </div>
                 <div class="campo">
                     <label for="">Em qual email podemos te responder?</label>
-                    <input id="campo-email" type="email" name="" placeholder="Digite seu email...">
+                    <input required id="campo-email" type="email" name="" placeholder="Digite seu email...">
                 </div>
                 <div class="campo-textarea">
                     <label for="">Descreva um pouco da sua empresa, e também o problema que enfrenta</label>
-                    <textarea name="" id="campo-descricao" cols="30" rows="10"
+                    <textarea required name="" id="campo-descricao" cols="30" rows="10"
                         placeholder="Descreva sua empresa e o problema que enfrenta"></textarea>
                 </div>
                 <button type="submit">Enviar</button>
